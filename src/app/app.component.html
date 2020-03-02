@@ -17,8 +17,12 @@
     </div>
     <div class="form-group">
       <label>Email</label>
+      <button type="button" class="btn btn-secondary btn-sm m-2" (click)="addAlernameEmail()">Add e-mail</button>
       <input [class.is-invalid]="email.invalid && email.touched" type="text" formControlName="email" class="form-control">
       <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
+      <div formArrayName="alternameEmails" *ngFor="let email of alternameEmails.controls; let i=index">
+        <input type="text" class="form-control my-1" [formControlName]="i">
+      </div>
     </div>
     <div class="form-check mb-3">
       <input type="checkbox" class="form-check-input" formControlName="subscribe">
